@@ -9,10 +9,11 @@ import android.widget.TextView;
 
 import com.example.shuiai.testtablayout.adapter.FramentAdapter;
 
-public class MainActivity extends FragmentActivity {
+public class MainActivity extends FragmentActivity  {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private String[] titles = {"黄蓉", "郭靖", "杨过", "小龙女", "尹志平", "金轮法王", "收到货就收到货圣诞节"};
+    private TextView textView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -32,8 +33,10 @@ public class MainActivity extends FragmentActivity {
 
     private View getTabView(int position) {
         View view = View.inflate(this, R.layout.item_tab_view, null);
-        TextView textView = (TextView) view.findViewById(R.id.textView);
+        textView = (TextView) view.findViewById(R.id.textView);
         textView.setText(titles[position]);
         return view;
     }
+
+
 }
