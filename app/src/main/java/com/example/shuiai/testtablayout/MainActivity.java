@@ -9,7 +9,7 @@ import android.widget.TextView;
 
 import com.example.shuiai.testtablayout.adapter.FramentAdapter;
 
-public class MainActivity extends FragmentActivity  {
+public class MainActivity extends FragmentActivity implements TabLayout.OnTabSelectedListener {
     private TabLayout tabLayout;
     private ViewPager viewPager;
     private String[] titles = {"黄蓉", "郭靖", "杨过", "小龙女", "尹志平", "金轮法王", "收到货就收到货圣诞节"};
@@ -29,6 +29,7 @@ public class MainActivity extends FragmentActivity  {
             TabLayout.Tab tab = tabLayout.getTabAt(i);
             tab.setCustomView(getTabView(i));
         }
+        tabLayout.addOnTabSelectedListener(this);
     }
 
     private View getTabView(int position) {
@@ -39,4 +40,18 @@ public class MainActivity extends FragmentActivity  {
     }
 
 
+    @Override
+    public void onTabSelected(TabLayout.Tab tab) {
+        tab.getCustomView().findViewById(R.id.circle).setVisibility(View.VISIBLE);
+    }
+
+    @Override
+    public void onTabUnselected(TabLayout.Tab tab) {
+        tab.getCustomView().findViewById(R.id.circle).setVisibility(View.GONE);
+    }
+
+    @Override
+    public void onTabReselected(TabLayout.Tab tab) {
+
+    }
 }
